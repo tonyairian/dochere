@@ -6,7 +6,7 @@ const doctorRoutes = require("./routes/doctor.js");
 const conversationRoutes = require("./routes/conversations.js");
 const messageRoutes = require("./routes/messages.js");
 const connection = require("./database/connection");
-const morgan =require('morgan')
+const morgan = require("morgan");
 const path = require("path");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -22,7 +22,12 @@ const server = http.createServer(app);
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], //frontEndURL
+    // origin: ["http://localhost:3000"], //frontEndURL
+    origin: [
+      "https://dochere.online",
+      "https://www.dochere.online",
+      "http://3.110.107.190",
+    ], //frontEndURL
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -30,7 +35,11 @@ app.use(
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "https://dochere.online",
+      "https://www.dochere.online",
+      "http://3.110.107.190",
+    ],
     methods: ["GET", "POST"],
   },
 });
@@ -75,7 +84,6 @@ try {
         senderId,
         text,
       });
-      
     });
 
     socket.on("disconnect", () => {
@@ -87,8 +95,6 @@ try {
 } catch (error) {
   console.log(error.message);
 }
-
-
 
 server.listen(process.env.PORT, (err) => {
   if (err) {

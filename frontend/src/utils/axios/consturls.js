@@ -1,9 +1,9 @@
 // export const baseUserUrl = "http://localhost:4000";
 // export const baseAdminUrl = "http://localhost:4000/admin";
 // export const baseDoctorUrl = "http://localhost:4000/doctor";
-export const baseUserUrl = "http://3.110.107.190";
-export const baseAdminUrl = "http://3.110.107.190/admin";
-export const baseDoctorUrl = "http://3.110.107.190/doctor";
+export const baseUserUrl = "http://3.110.107.190/api/";
+export const baseAdminUrl = "http://3.110.107.190/api/admin";
+export const baseDoctorUrl = "http://3.110.107.190/api/doctor";
 // 3.110.107.190
 //USER
 export const USER_LOGIN = "/login";
