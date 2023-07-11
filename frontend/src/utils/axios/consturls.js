@@ -4,7 +4,7 @@
 export const baseUserUrl = "http://3.110.107.190/api/";
 export const baseAdminUrl = "http://3.110.107.190/api/admin";
 export const baseDoctorUrl = "http://3.110.107.190/api/doctor";
-// 3.110.107.190
+
 //USER
 export const USER_LOGIN = "/login";
 export const USER_SIGNUP = "/signup";
