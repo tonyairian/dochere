@@ -202,7 +202,8 @@ const verifyDoctorEmail = async (req, res) => {
       { $set: { emailVerified: true } }
     );
     if (doctor) {
-      res.redirect("http://localhost:3000/doctor/login");
+      // res.redirect("http://localhost:3000/doctor/login");
+       res.redirect("https://dochere.online/doctor/login");
     } else {
       console.log("dooooo");
     }
@@ -227,7 +228,8 @@ const forgotPassword = async (req, res) => {
 
 const forgotPasswordApprove = async (req, res) => {
   const doctorId = req.params.id.slice(3);
-  res.redirect(`http://localhost:3000/doctor/forgot-password/${doctorId}`);
+  // res.redirect(`http://localhost:3000/doctor/forgot-password/${doctorId}`);
+   res.redirect(`https://dochere.online/doctor/forgot-password/${doctorId}`);
 };
 
 const newPassword = async (req, res) => {
