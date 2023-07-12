@@ -69,11 +69,12 @@ const Conversations = ({ conversation, currentUser }) => {
     <div className="conversation">
       <img
         className="conversationImg"
-        src={
-          user?.profilePicture
-            ? image_path + user.profilePicture
-            : "https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png"
-        }
+        src="https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png"
+        // src={
+        //   user?.profilePicture
+        //     ? image_path + user.profilePicture
+        //     : "https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png"
+        // }
         alt=""
       />
       <span className="conversationName">

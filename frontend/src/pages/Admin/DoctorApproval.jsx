@@ -20,7 +20,8 @@ const DoctorApproval = () => {
     profilePicture,
   } = location.state.doctorData;
   const navigate = useNavigate();
-  const image_path = "http://localhost:4000/images/";
+  // const image_path = "http://localhost:4000/images/";
+  const image_path = "https://server.dochere.online/images/";
   const approveDoctor = async () => {
     const { data } = await adminInstance.post(APPROVE_DOCTOR, { _id });
     if (data) {
