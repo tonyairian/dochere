@@ -14,20 +14,6 @@ dotenv.config();
 const http = require("http");
 const { Server } = require("socket.io");
 const server = http.createServer(app);
-
-
-// const io = new Server(server, {
-//   cors: {
-//     // origin: [
-//     //   "http://dochere.online",
-//     //   "http://www.dochere.online",
-//     //   "http://3.110.107.190",
-//     // ],
-//     origin: "*",
-//     methods: ["GET", "POST"],
-//   },
-// });
-
 app.use(
   cors({
     origin: [
@@ -43,7 +29,13 @@ app.use(
 );
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://dochere.online",
+      "https://www.dochere.online",
+      "https://server.dochere.online",
+      "https://3.110.107.190",
+    ],
     methods: ["GET", "POST"],
   },
 });

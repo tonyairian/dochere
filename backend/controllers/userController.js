@@ -277,7 +277,8 @@ const forgotPassword = async (req, res) => {
 
 const forgotPasswordApprove = async (req, res) => {
   const userId = req.params.id.slice(3);
-  res.redirect(`http://localhost:3000/forgot-password/${userId}`);
+  // res.redirect(`http://localhost:3000/forgot-password/${userId}`);
+  res.redirect(`https://server.dochere.online/forgot-password/${userId}`);
 };
 const newPassword = async (req, res) => {
   const newPassword = req.body.values.password;
