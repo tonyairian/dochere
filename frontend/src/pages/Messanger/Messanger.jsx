@@ -180,7 +180,7 @@ import Message from "../../components/message/Message";
 import ChatOnline from "../../components/chatOnline/ChatOnline";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios from '../../utils/axios/axios'
 import { io } from "socket.io-client";
 const Messanger = () => {
   const User = useSelector((store) => store.user);
@@ -200,9 +200,12 @@ const Messanger = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
-  const socket = useRef(io("ws://server.dochere.online"));
+  // const socket = useRef(io("ws://localhost:4000"));
+ const socket = useRef(io("ws://server.dochere.online"));
+
   useEffect(() => {
-    socket.current = io("ws://localhost:4000");
+    // socket.current = io("ws://localhost:4000");
+    socket.current = io("ws://server.dochere.online");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -237,8 +240,12 @@ const Messanger = () => {
   useEffect(() => {
     const getConversations = async () => {
       try {
+        // const res = await axios.get(
+        //   "http://localhost:4000/conversation/" + commonUser.id
+        // );
+
         const res = await axios.get(
-          "http://localhost:4000/conversation/" + commonUser.id
+          "/conversation/" + commonUser.id
         );
 
         setConversations(res.data);
@@ -252,8 +259,11 @@ const Messanger = () => {
   useEffect(() => {
     const getMessages = async () => {
       try {
+        // const res = await axios.get(
+        //   "http://localhost:4000/message/" + currentChat?._id
+        // );
         const res = await axios.get(
-          "http://localhost:4000/message/" + currentChat?._id
+          "/message/" + currentChat?._id
         );
         setMessages(res.data);
       } catch (err) {
@@ -280,7 +290,8 @@ const Messanger = () => {
     });
 
     try {
-      const res = await axios.post("http://localhost:4000/message", message);
+      // const res = await axios.post("http://localhost:4000/message", message);
+      const res = await axios.post("/message", message);
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
