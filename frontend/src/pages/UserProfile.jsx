@@ -26,7 +26,7 @@ const UserProfile = () => {
   useEffect(() => {
     const getUserProfile = async () => {
       const { data } = await axios.post(
-        "http://server.dochere.online/getUserProfile",
+        "https://server.dochere.online/getUserProfile",
         { userId }
       );
       setUserDetails(data.userData);
