@@ -190,14 +190,13 @@ import { UPDATE_PROFILE } from "../utils/axios/consturls";
 const image_path = "https://server.dochere.online/images/";
 const EditUserProfile = () => {
   const location = useLocation();
-  const { name, profilePicture, email, number } = location.state.userDetails;
-  console.log(location.state.userDetails);
-  const User = useSelector((store) => store.user);
-  const image = User.profileImg;
+  const { name, profilePicture, email, number, password } =
+    location.state.userDetails;
+  // const User = useSelector((store) => store.user);
   const navigate = useNavigate();
-  const [userName, setUserName] = useState(User.name);
-  const [userEmail, setUserEmail] = useState(User.email);
-  const [userNumber, setUserNumber] = useState(User.number);
+  const [userName, setUserName] = useState(name);
+  const [userEmail, setUserEmail] = useState(email);
+  const [userNumber, setUserNumber] = useState(number);
   const [userPassword, setUserPassword] = useState("");
   const [img, setImg] = useState("");
   const dipatch = useDispatch();
@@ -213,10 +212,6 @@ const EditUserProfile = () => {
     formData.append("number", userNumber);
     formData.append("password", userPassword);
     try {
-      // const { data } = await axios.post(
-      //   "http://localhost:4000/update-profile",
-      //   formData
-      // );
       const { data } = await axios.post(UPDATE_PROFILE, formData);
       dipatch(updateUserImage(data.userDetails[0].profilePicture));
       if (data.userProfileUpdated) {
@@ -275,7 +270,7 @@ const EditUserProfile = () => {
                     placeholder="Full Name"
                     // value={userName}
                     // onChange={(e) => setUserName(e.target.value)}
-                    value={name}
+                    value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     required=""
                   />
@@ -293,14 +288,14 @@ const EditUserProfile = () => {
                     type="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    value={email}
+                    value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
                     required=""
                     disabled
                   />
                 </div>
 
-                {User.password ? (
+                {password ? (
                   <div>
                     <label
                       htmlFor="mobile"
@@ -314,7 +309,7 @@ const EditUserProfile = () => {
                       type="tel"
                       placeholder="mobile no"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      value={number}
+                      value={userNumber}
                       onChange={(e) => setUserNumber(e.target.value)}
                       required=""
                     />
@@ -323,7 +318,7 @@ const EditUserProfile = () => {
                   <></>
                 )}
 
-                {User.number ? (
+                {number ? (
                   <div>
                     <label
                       htmlFor="password"
