@@ -158,7 +158,6 @@ const doctorSpecialization = async (req, res) => {
 const updateProfile = async (req, res) => {
   const profilePicture = req.files[0]?.filename;
   const { email, name, number, password } = req.body;
-
   try {
     if (password || number) {
       bcrypt.hash(password, 10).then(async (saltedPassword) => {
@@ -357,43 +356,6 @@ const confirmSlot = async (req, res) => {
 const confirmBooking = async (req, res) => {
   order(req, res);
 };
-
-// const bookSession = async (req, res) => {
-//   try {
-//     const timeSlot = req.body.slot;
-//     const sessionDate = req.body.date;
-//     const fee = req.body.fee;
-//     const today = moment().format("YYYY-MM-DD");
-//     const userDetails = req.body.userDetails;
-//     const doctorDetails = req.body.doctorDetails;
-
-// //changed time fromat to 24 hours
-//     const inputTime = timeSlot;
-//     const timeFormat = 'h:mm A';
-//     const parsedTime = moment(inputTime, timeFormat);
-//     const timeString = parsedTime.format('HH:mm');
-//     const data = {
-//       userId: userDetails._id,
-//       doctorId: doctorDetails._id,
-//       fee: fee,
-//       bookedDate: today,
-//       sessionDate: sessionDate,
-//       timeSlot: timeString,
-
-//     };
-//     const booked = await Session(data).save();
-//     if (booked) {
-
-//       res
-//         .status(200)
-//         .json({ message: "Session booked successfully", session: booked });
-//     } else {
-//       res.json({ message: "Session booking failed",session:false });
-//     }
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// };
 
 const bookSession = async (req, res) => {
   try {

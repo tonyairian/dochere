@@ -2,7 +2,7 @@ const router = require("express").Router();
 const doctorController = require("../controllers/doctorController");
 const verifyDoctor = require("../middlewares/doctorMiddleware");
 const store = require("../utils/multer");
-router.get("/", verifyDoctor);
+router.post("/", verifyDoctor);
 router.post("/signup", doctorController.doctorSignup);
 router.post("/login", doctorController.doctorLogin);
 router.post(
