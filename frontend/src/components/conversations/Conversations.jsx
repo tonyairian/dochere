@@ -40,7 +40,8 @@
 
 import { useEffect, useState } from "react";
 import "./conversations.css";
-import axios from "axios";
+// import axios from "axios";
+import axios from "../../utils/axios/axios";
 const image_path = "http://localhost:4000/images/";
 const Conversations = ({ conversation, currentUser }) => {
   const [user, setUser] = useState(null);
@@ -49,8 +50,11 @@ const Conversations = ({ conversation, currentUser }) => {
     const friendId = conversation.members.find((m) => m !== currentUser.id);
     const getUser = async () => {
       try {
+        // const res = await axios(
+        //   "http://localhost:4000/conversation/chatUser/" + friendId
+        // );
         const res = await axios(
-          "http://localhost:4000/conversation/chatUser/" + friendId
+          "/conversation/chatUser/" + friendId
         );
         setUser(res.data?.user);
         setDoctor(res.data?.doctor);
