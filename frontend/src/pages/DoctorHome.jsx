@@ -142,7 +142,7 @@ const DoctorHome = () => {
         //   withCredentials: true,
         // });
 
-        const { data } = await doctorInstance.post("http://localhost:4000/doctor",{doctorToken:doctor});
+        const { data } = await doctorInstance.post("https://server.dochere.online/doctor",{doctorToken:doctor});
 
         setdoctorDetails(data);
         if (data.doctor.blocked === true) {
