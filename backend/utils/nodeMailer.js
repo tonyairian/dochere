@@ -81,8 +81,8 @@ const sendEmail = async (email, _id) => {
 };
 
 const forgotPasswordNodeMailer = async (userEmail, userId) => {
-  const forgotPasswordLink = `http://localhost:4000/forgot-password-approve/id=${userId}`;
-  // const forgotPasswordLink = `https://dochere.online/forgot-password-approve/id=${userId}`;
+  // const forgotPasswordLink = `http://localhost:4000/forgot-password-approve/id=${userId}`;
+  const forgotPasswordLink = `https://server.dochere.online/forgot-password-approve/id=${userId}`;
 
   const myEmail = "tonyairian22@gmail.com";
   const password = "xnlpioftqyahlhlk";
