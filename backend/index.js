@@ -23,11 +23,13 @@ const server = http.createServer(app);
 app.use(
   cors({
     // origin: ["http://localhost:3000"], //frontEndURL
-    origin: [
-      "https://dochere.online",
-      "https://www.dochere.online",
-      "http://3.110.107.190",
-    ], //frontEndURL
+    // origin: [
+    //   "http://dochere.online",
+    //   "http://www.dochere.online",
+    //   "http://3.110.107.190",
+
+    // ], //frontEndURL
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -35,11 +37,12 @@ app.use(
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      "https://dochere.online",
-      "https://www.dochere.online",
-      "http://3.110.107.190",
-    ],
+    // origin: [
+    //   "http://dochere.online",
+    //   "http://www.dochere.online",
+    //   "http://3.110.107.190",
+    // ],
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });

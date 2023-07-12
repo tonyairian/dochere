@@ -50,7 +50,7 @@ const UserLogin = () => {
         });
       } else if (data.validPassword === true) {
         if (data.emailVerified === true) {
-          // cookie.set("userToken", `${data.token}`, { path: "/" });
+          cookie.set("userToken", `${data.token}`, { path: "/" });
           navigate("/");
         } else {
           toast.warn("Verify Your Email!", {
