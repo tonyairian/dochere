@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 dotenv.config();
 const sendEmailDoctor = async (email, _id) => {
-  const link = process.env.LINK+_id;
+  const link = process.env.LINK + _id;
   const myEmail = process.env.MY_EMAIL;
   const password = process.env.PASSWORD;
   const transporter = nodemailer.createTransport({
@@ -40,8 +40,8 @@ const sendEmailDoctor = async (email, _id) => {
 };
 
 const sendEmail = async (email, _id) => {
-  // const link = `http://localhost:4000/verify-email/id=${_id}`;
-  const link = `https://server.dochere.online/verify-email/id=${_id}`;
+  const link = `http://localhost:4000/verify-email/id=${_id}`;
+  // const link = `https://server.dochere.online/verify-email/id=${_id}`;
   const myEmail = "tonyairian22@gmail.com";
   const password = "xnlpioftqyahlhlk";
 
@@ -81,7 +81,9 @@ const sendEmail = async (email, _id) => {
 };
 
 const forgotPasswordNodeMailer = async (userEmail, userId) => {
-  const forgotPasswordLink = `http://localhost:4000/forgot-password-approve/id=${userId}`;
+  // const forgotPasswordLink = `http://localhost:4000/forgot-password-approve/id=${userId}`;
+  const forgotPasswordLink = `https://server.dochere.online/forgot-password-approve/id=${userId}`;
+
   const myEmail = "tonyairian22@gmail.com";
   const password = "xnlpioftqyahlhlk";
   const transporter = nodemailer.createTransport({
