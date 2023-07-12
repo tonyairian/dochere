@@ -14,39 +14,42 @@ const AdminHome = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const verifyAdmin = async () => {
-      if (!admin) {
-        navigate("/admin/login");
-      } else {
-        // const { data } = await axios.get("http://localhost:4000/admin", {
-        //   withCredentials: true,
-        // });
-        const { data } = await adminInstance.get(ADMIN_HOME, {
-          withCredentials: true,
-        });
-        setAdminDetails(data);
-        if (!data.status) {
-          cookie.remove("adminToken");
+      try {
+        if (!admin) {
           navigate("/admin/login");
         } else {
-          // console.log("logged in user");
-          toast("🦄 Welcome Admin!", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
+          // const { data } = await axios.get("http://localhost:4000/admin", {
+          //   withCredentials: true,
+          // });
+          const { data } = await adminInstance.get(ADMIN_HOME, {
+            withCredentials: true,
           });
+          setAdminDetails(data);
+          if (!data.status) {
+            cookie.remove("adminToken");
+            navigate("/admin/login");
+          } else {
+            // console.log("logged in user");
+            toast("🦄 Welcome Admin!", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          }
         }
+      } catch (error) {
+        console.log(error);
       }
     };
     verifyAdmin();
   }, []);
   return (
     <div>
-      
       <AdminNavbar />
       <ToastContainer />
     </div>

@@ -22,7 +22,9 @@ import {
   Center,
 } from "@chakra-ui/react";
 import HorizontalLine from "../../components/HorizontalLine";
-const image_path = "http://localhost:4000/images/";
+// const image_path = "http://localhost:4000/images/";
+const image_path = "https://server.dochere.online/images/";
+
 const ViewDoctors = () => {
   const location = useLocation();
   const id = location.state.specializationId;

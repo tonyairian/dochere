@@ -18,12 +18,14 @@ const DoctorHome = () => {
   const doctorId = doctorDetails?.doctor?._id;
   useEffect(() => {
     const verifyDoctor = async () => {
+     try {
       if (!doctor) {
         navigate("/doctor/login");
       } else {
         const { data } = await doctorInstance.get(DOCTOR_HOME, {
           withCredentials: true,
         });
+        console.log(data);
         setdoctorDetails(data);
         if (data.doctor.blocked === true) {
           cookie.remove("doctorToken");
@@ -44,9 +46,13 @@ const DoctorHome = () => {
             progress: undefined,
             theme: "dark",
           });
+         
           dispatch(doctorLogin(data.doctor));
         }
       }
+     } catch (error) {
+      console.log(error);
+     }
     };
     verifyDoctor();
   }, []);

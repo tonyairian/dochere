@@ -21,14 +21,12 @@ const Home = () => {
   const [UserDetails, setUserDetails] = useState({});
   const [specialization, setSpecialization] = useState([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    const verifyUser = async () => {
+
+  const verifyUser = async () => {
+    try {
       if (!user) {
         navigate("/login");
       } else {
-        // const { data } = await axios.get("http://localhost:4000", {
-        //   withCredentials: true,
-        // });
         const { data } = await axios.get(HOME, {
           withCredentials: true,
         });
@@ -53,19 +51,20 @@ const Home = () => {
           });
         }
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    const getDoctorSpecialization = async () => {
-      try {
-        // const { data } = await axios.get(
-        //   "http://localhost:4000/doctor-specialization"
-        // );
-        const { data } = await axios.get(DOCTOR_SPECIALIZATION);
-        setSpecialization(data.specializations);
-      } catch (error) {
-        // navigate("*");
-      }
-    };
+  const getDoctorSpecialization = async () => {
+    try {
+      const { data } = await axios.get(DOCTOR_SPECIALIZATION);
+      setSpecialization(data.specializations);
+    } catch (error) {
+      // navigate("*");
+    }
+  };
+  useEffect(() => {
     verifyUser();
     getDoctorSpecialization();
   }, []);

@@ -75,7 +75,7 @@ const userLogin = async (req, res) => {
             validPassword: true,
             token: token,
             emailVerified: userDetailsFromDb.emailVerified,
-            blocked: userDetailsFromDb.blocked
+            blocked: userDetailsFromDb.blocked,
           });
         } else {
           res.status(200).json({ userDetails: result, validPassword: false });
@@ -488,6 +488,20 @@ const createConversation = async (req, res) => {
   const savedConversation = await newConversation.save();
 };
 
+const getUserProfile = async (req, res) => {
+  const { userId } = req.body;
+  try {
+    const userData = await User.findOne({ _id: userId });
+    if (userData) {
+      res.json({ userData: userData });
+    } else {
+      res.json({ userData: false });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   userSignup,
   userLogin,
@@ -507,4 +521,5 @@ module.exports = {
   cancelAppointment,
   sessionComplete,
   createConversation,
+  getUserProfile,
 };

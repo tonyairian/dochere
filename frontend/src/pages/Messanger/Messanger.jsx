@@ -200,7 +200,7 @@ const Messanger = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const scrollRef = useRef();
-  const socket = useRef(io("ws://localhost:4000"));
+  const socket = useRef(io("ws://server.dochere.online"));
   useEffect(() => {
     socket.current = io("ws://localhost:4000");
     socket.current.on("getMessage", (data) => {

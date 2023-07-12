@@ -18,7 +18,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-const image_path = "http://localhost:4000/images/";
+const image_path = "https://server.dochere.online/images/";
 const DoctorProfile = () => {
   const cookie = new Cookies();
   const doctor = cookie.get("doctorToken");

@@ -23,7 +23,8 @@ import { DatePicker } from "antd";
 import Cookies from "universal-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const image_path = "http://localhost:4000/images/";
+// const image_path = "http://localhost:4000/images/";
+const image_path = "https://server.dochere.online/images/";
 export const Booking = () => {
   const navigate = useNavigate();
   const [timeSlot, SetTimeSlot] = useState([]);

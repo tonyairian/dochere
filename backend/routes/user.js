@@ -31,5 +31,7 @@ router.get("/appointment/:id", userController.getUserAppointments);
 router.post("/cancel-appointment", userController.cancelAppointment);
 router.post("/session-complete", userController.sessionComplete);
 router.post("/create-conversation", userController.createConversation);
+router.post("/getUserProfile",userController.getUserProfile);
+
 
 module.exports = router;
