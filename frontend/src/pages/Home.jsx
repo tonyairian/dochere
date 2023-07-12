@@ -27,9 +27,13 @@ const Home = () => {
       if (!user) {
         navigate("/login");
       } else {
-        const { data } = await axios.get(HOME, {
-          withCredentials: true,
+        const { data } = await axios.post(HOME, {
+          userToken: user,
         });
+
+        // const { data } = await axios.post("http://localhost:4000", {
+        //   userToken: user,
+        // });
         setUserDetails(data);
         if (data.blocked) {
           cookie.remove("userToken");

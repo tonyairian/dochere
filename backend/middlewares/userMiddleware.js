@@ -2,15 +2,17 @@ const User = require("../models/userSchema");
 const jwt = require("jsonwebtoken");
 
 const verifyUser = (req, res, next) => {
-  let cookies = {};
-  const cookiesArray = req.headers.cookie.split(";");
-  cookiesArray.forEach((cookie) => {
-    const [key, value] = cookie.trim().split("=");
-    cookies[key] = value;
-  });
-  
-  if (cookies.userToken) {
-    jwt.verify(cookies.userToken, "secret", async (err, decodedToken) => {
+  const { userToken } = req.body;
+
+  // let cookies = {};
+  // const cookiesArray = req.headers.cookie.split(";");
+  // cookiesArray.forEach((cookie) => {
+  //   const [key, value] = cookie.trim().split("=");
+  //   cookies[key] = value;
+  // });
+
+  if (userToken) {
+    jwt.verify(userToken, "secret", async (err, decodedToken) => {
       if (err) {
         return res.json({ status: false });
         // next();

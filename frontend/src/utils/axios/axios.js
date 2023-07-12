@@ -3,17 +3,17 @@ import { baseUserUrl, baseDoctorUrl,baseAdminUrl } from "./consturls";
 
 const instance = axios.create({
   baseURL: baseUserUrl,
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 const adminInstance = axios.create({
   baseURL: baseAdminUrl,
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 const doctorInstance = axios.create({
   baseURL: baseDoctorUrl,
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 export default instance;

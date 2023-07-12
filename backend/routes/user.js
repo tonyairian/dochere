@@ -4,7 +4,7 @@ const verifyUser = require("../middlewares/userMiddleware");
 const { verifyPayment } = require("../controllers/paymentController");
 const store = require("../utils/multer");
 const router = express.Router();
-router.get("/", verifyUser);
+router.post("/", verifyUser);
 router.post("/signup", userController.userSignup);
 router.post("/login", userController.userLogin);
 router.post("/googlelogin", userController.googlelogin);

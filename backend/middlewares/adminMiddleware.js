@@ -2,16 +2,17 @@ const Admin = require("../models/adminSchema");
 const jwt = require("jsonwebtoken");
 
 const verifyAdmin = (req, res, next) => {
-  let cookies = {};
-  const cookiesArray = req.headers.cookie.split(";");
+  const { adminToken } = req.body;
+  // let cookies = {};
+  // const cookiesArray = req.headers.cookie.split(";");
 
-  cookiesArray.forEach((cookie) => {
-    const [key, value] = cookie.trim().split("=");
-    cookies[key] = value;
-  });
+  // cookiesArray.forEach((cookie) => {
+  //   const [key, value] = cookie.trim().split("=");
+  //   cookies[key] = value;
+  // });
 
-  if (cookies.adminToken) {
-    jwt.verify(cookies.adminToken, "secret", async (err, decodedToken) => {
+  if (adminToken) {
+    jwt.verify(adminToken, "secret", async (err, decodedToken) => {
       if (err) {
         res.json({ status: false });
         next();

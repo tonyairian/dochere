@@ -21,9 +21,18 @@ const AdminHome = () => {
           // const { data } = await axios.get("http://localhost:4000/admin", {
           //   withCredentials: true,
           // });
-          const { data } = await adminInstance.get(ADMIN_HOME, {
-            withCredentials: true,
+
+          const { data } = await adminInstance.post(ADMIN_HOME, {
+            adminToken: admin,
           });
+
+          // const { data } = await adminInstance.post(
+          //   "http://localhost:4000/admin",
+          //   {
+          //     adminToken: admin,
+          //   }
+          // );
+
           setAdminDetails(data);
           if (!data.status) {
             cookie.remove("adminToken");

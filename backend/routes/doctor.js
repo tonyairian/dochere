@@ -28,9 +28,6 @@ router.post(
 );
 router.post("/re-apply", store.any("images"), doctorController.reApply);
 router.get("/appointment/:id", doctorController.getAppointments);
-router.post("/link",doctorController.setLink);
-
-
-
+router.post("/link", doctorController.setLink);
 
 module.exports = router;

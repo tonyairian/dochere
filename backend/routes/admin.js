@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/adminController");
 const verifyAdmin = require("../middlewares/adminMiddleware");
-router.get("/", verifyAdmin);
+router.post("/", verifyAdmin);
 router.post("/login", adminController.adminLogin);
 router.get("/userlist", adminController.userList);
 router.post("/blockuser", adminController.blockUser);
@@ -19,8 +19,5 @@ router.get("/verified-doctors", adminController.verifiedDoctors);
 router.post("/block-doctor", adminController.blockDoctor);
 router.post("/unblock-doctor", adminController.unblockDoctor);
 router.get("/pending-doctorlist", adminController.pendingDoctorList);
-
-
-
 
 module.exports = router;
