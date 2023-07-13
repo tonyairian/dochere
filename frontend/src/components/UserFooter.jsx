@@ -171,7 +171,7 @@ const UserFooter = () => {
                   Home
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/" className="mr-4 hover:underline md:mr-6 ">
                   Campaigns
                 </a>
@@ -180,7 +180,7 @@ const UserFooter = () => {
                 <a href="/" className="mr-4 hover:underline md:mr-6">
                   Blog
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href="/" className="mr-4 hover:underline md:mr-6">
                   Affiliate Program
