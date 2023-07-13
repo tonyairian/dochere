@@ -40,7 +40,7 @@ const ConfirmBooking = () => {
       name: ".Dochere.com",
       description: "Booking session",
       order_id: data.id,
-      image: "https://evara.ml/user-assets/imgs/theme/logo.svg",
+      image: "https://dochere.online/logo.svg",
 
       modal: {
         ondismiss: function () {
@@ -60,8 +60,8 @@ const ConfirmBooking = () => {
       },
       prefill: {
         name: "Tony",
-        email: "mvel1620r@gmail.com",
-        contact: "7904425033",
+        email: "tonyairian007@gmail.com",
+        contact: "8113054548",
       },
       notes: {
         address: "Razorpay Corporate office",
